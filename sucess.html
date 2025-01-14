@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Success</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+        }
+
+        .success-checkmark {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 20px;
+            border-radius: 50%;
+            background-color: #47c9a2;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 40px;
+        }
+
+        h2 {
+            margin: 20px 0;
+        }
+
+        p {
+            font-size: 16px;
+            margin: 10px 0;
+        }
+
+        .btn {
+            background-color: #47c9a2;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .btn:hover {
+            background-color: #3bb08c;
+        }
+
+        a.btn {
+            text-decoration: none;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="success-checkmark">
+            <i class="fas fa-check"></i>
+        </div>
+        <h2>Order Placed Successfully!</h2>
+        <p>Thank you for your purchase. Your order has been successfully processed.</p>
+
+        <div id="order-details"></div>
+
+        <button class="btn" onclick="window.print()">Print Receipt</button>
+        <a href="index.html" class="btn" style="background-color: #ddd; color: #333;">Go Back to Home</a>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            try {
+                const orderData = JSON.parse(localStorage.getItem('lastOrder'));
+
+                if (!orderData) {
+                    console.error("Order data is missing!");
+                    window.location.href = "index.html";
+                    return;
+                }
+
+                console.log("Order Data:", orderData); // Debugging info
+
+                const detailsDiv = document.getElementById('order-details');
+                detailsDiv.innerHTML = `
+                    <p><strong>Order ID:</strong> ${orderData.orderId}</p>
+                    <p><strong>Order Date:</strong> ${new Date(orderData.orderDate).toLocaleString()}</p>
+                    <p><strong>Shipping To:</strong> ${orderData.shippingDetails.firstName}, ${orderData.shippingDetails.address1}, ${orderData.shippingDetails.city}, ${orderData.shippingDetails.state}, ${orderData.shippingDetails.zipCode}</p>
+                `;
+            } catch (error) {
+                console.error("Error displaying order details:", error);
+                alert("An error occurred while displaying your order. Please try again.");
+            }
+        });
+    </script>
+</body>
+</html>

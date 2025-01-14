@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Arrival</title>
+
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('image/background.jpeg');
+            color: #333;
+        }
+
+         .header {
+            background-color: #ffc0cb;
+            color: black;
+            padding: 56px 20px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+         }
+
+         .logo {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 4px solid #fff;
+            margin-left: 0; 
+            position: absolute; 
+            left: 20px; 
+            transition: transform 0.3s;
+         }
+
+         .logo:hover {
+            transform: scale(1.1);
+         }
+
+         .header-content {
+            text-align: center;
+            flex-grow: 1;
+         }
+
+         .header h1 {
+            font-size: 3em;
+            margin: 0;
+            font-weight: bold;
+         }
+
+         .header-content p {
+            font-size: 3em;
+            margin: 10px 0;
+         }
+
+        
+        .navbar {
+            background-color: #ffc0cb;
+            padding: 10px 20px;
+            overflow-x: auto;
+            white-space: nowrap;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .navbar ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .navbar li {
+            margin-left: 20px;
+        }
+
+        .navbar li:first-child {
+            margin-left: 0;
+        }
+
+        .navbar a {
+            color: black;
+            text-decoration: none;
+            font-size: 1.2em;
+            font-weight: bold;
+            padding: 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .navbar a:hover {
+            background-color: #e91e63;
+        }
+
+        .container {
+            max-width: 100%;  
+            margin: 0 auto;   
+            padding: 0 20px;  
+        }
+
+       .product-grid {
+           display: flex;
+           justify-content: center;  
+           align-items: center;    
+           gap: 20px;
+           padding-bottom: 20px;
+           margin: 0 auto;   
+           flex-wrap: wrap; 
+           overflow-x: auto; 
+        }
+
+
+        .product-card {
+            background: rgba(255, 255, 255, 0.8);
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            flex: 0 0 auto;  
+            width: 300px;  
+        }
+
+        .product-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .product-card img {
+            width: 100%;
+            height: auto;
+        }
+
+        .product-info {
+            padding: 15px;
+            text-align: center;
+            animation: fadeIn 1.5s;
+        }
+
+        .product-info h3 {
+            font-size: 1.2em;
+            color: #333;
+            margin: 10px 0;
+            animation: textGlow 2s infinite;
+        }
+
+        .product-info p {
+            color: #666;
+            margin: 5px 0 15px;
+        }
+
+        .product-info .price {
+            font-size: 1.5em;
+            color: #e91e63;
+            font-weight: bold;
+        }
+
+        .button {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #e91e63;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        .button:hover {
+            background-color: #c2185b;
+            transform: scale(1.1);
+        }
+
+        .slider-container {
+            position: relative;
+            width: 100%;
+            max-width: 100%;
+        }
+
+        .slider-container img {
+            width: 100%;
+            height: auto;
+            display: none;
+        }
+
+        .slider-container img.active {
+            display: block;
+        }
+
+        .slider-buttons {
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .slider-button {
+            display: inline-block;
+            padding: 5px 10px;
+            background-color: #e91e63;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .slider-button:hover {
+            background-color: #c2185b;
+        }
+
+        .footer {
+            background-color: #ffc0cb;
+            color: black;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+            margin: 0;
+        }
+
+        .footer a {
+            color: black;
+            margin-right: 10px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .footer a:hover {
+            color: #fff;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes textGlow {
+            0%, 100% {
+                text-shadow: 0 0 5px #e91e63, 0 0 10px #e91e63;
+            }
+            50% {
+                text-shadow: 0 0 15px #e91e63, 0 0 20px #e91e63;
+            }
+        }
+    </style>
+    <script>
+        function changeSlide(containerId, slideIndex) {
+            const container = document.getElementById(containerId);
+            const slides = container.querySelectorAll('img');
+            slides.forEach((slide, index) => {
+                slide.classList.toggle('active', index === slideIndex);
+            });
+        }
+
+        function addToCart(productName, price, image) {
+                    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+                    const existingProduct = cart.find((item) => item.name === productName);
+
+                     if (existingProduct) {
+                     existingProduct.quantity += 1;
+                     } else {
+        
+                     cart.push({ name: productName, price, img: image, quantity: 1 });
+                     }
+
+                    localStorage.setItem('cart', JSON.stringify(cart));
+                    alert(`${productName} has been added to your cart!`);
+                    updateCartCount();
+                    }
+
+        function updateCartCount() {
+                    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+                    const cartCount = cart.reduce((total, item) => total + item.quantity, 0); // Sum up quantities
+                    document.getElementById('cart-count').textContent = cartCount;
+                    }
+
+        window.onload = updateCartCount;
+
+    </script>
+</head>
+<body>
+    <div class="header">
+        <img src="Image/logo.jpg" alt="Logo" class="logo">
+        <h1>New Arrival</h1>
+        <p>"Discover our latest collection of stylish and trendy hijabs, designed to elevate your fashion game with elegance and comfort!"</p>
+    </div>
+
+    <div class="navbar">
+        <a href="index.html">Home</a>
+        <a href="product.html">Products</a>
+        <a href="newarrival.html">New Arrivals</a>
+        <a href="bestseller.html">Best Seller</a>
+        <a href="cart.html">Cart (<span id="cart-count">0</span>)</a> 
+    </div>
+
+    <div class="container">
+        <div class="product-grid">
+            <div class="product-card">
+                <div class="slider-container" id="slider1">
+                    <img src="Image/design1.jpg" alt="AMARA - Main View" class="active">
+                    <img src="Image/design 1.jpeg" alt="AMARA - Alternative View">
+                </div>
+                <div class="slider-buttons">
+                    <button class="slider-button" onclick="changeSlide('slider1', 0)">1</button>
+                    <button class="slider-button" onclick="changeSlide('slider1', 1)">2</button>
+                </div>
+                <div class="product-info">
+                    <h3>AMARA</h3>
+                    <p>Perfect for casual or formal wear.</p>
+                    <div class="price">RM35.00</div>
+                    <a href="#" class="button" onclick="addToCart('AMARA', 32.00, 'Image/design1.jpg')">Add to Cart</a>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="slider-container" id="slider2">
+                    <img src="Image/design 2.jpg" alt="ARABELLA - Main View" class="active">
+                    <img src="Image/design2.jpg" alt="ARABELLA - Alternative View">
+                </div>
+                <div class="slider-buttons">
+                    <button class="slider-button" onclick="changeSlide('slider2', 0)">1</button>
+                    <button class="slider-button" onclick="changeSlide('slider2', 1)">2</button>
+                </div>
+                <div class="product-info">
+                    <h3>ARABELLA</h3>
+                    <p>Stylish and versatile for any occasion.</p>
+                    <div class="price">RM35.00</div>
+                    <a href="#" class="button" onclick="addToCart('ARABELLA', 35.00, 'Image/design 2.jpg')">Add to Cart</a>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="slider-container" id="slider3">
+                    <img src="Image/design 5.jpeg" alt="ARIANA - Main View" class="active">
+                    <img src="Image/design4.jpg" alt="ARIANA - Alternative View">
+                </div>
+                <div class="slider-buttons">
+                    <button class="slider-button" onclick="changeSlide('slider3', 0)">1</button>
+                    <button class="slider-button" onclick="changeSlide('slider3', 1)">2</button>
+                </div>
+                <div class="product-info">
+                    <h3>ARIANA</h3>
+                    <p>Add a touch of elegance to your outfit.</p>
+                    <div class="price">RM35.00</div>
+                   <a href="#" class="button" onclick="addToCart('ARIANA', 35.00, 'Image/design 5.jpeg')">Add to Cart</a>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="slider-container" id="slider4">
+                    <img src="Image/design 2.jpeg" alt="AMAYA - Main View" class="active">
+                    <img src="Image/design 4.1.jpg" alt="AMAYA - Alternative View">
+                </div>
+                <div class="slider-buttons">
+                    <button class="slider-button" onclick="changeSlide('slider4', 0)">1</button>
+                    <button class="slider-button" onclick="changeSlide('slider4', 1)">2</button>
+                </div>
+                <div class="product-info">
+                    <h3>AMAYA</h3>
+                    <p>Feel the luxury with this premium hijab.</p>
+                    <div class="price">RM35.00</div>
+                    <a href="#" class="button" onclick="addToCart('AMAYA', 35.00, 'Image/design 2.jpeg')">Add to Cart</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <a href="https://www.instagram.com/flowrahijab_?igsh=bWoxN3lyeGZxYmM0&utm_source=qr" target="_blank">Follow us on Instagram</a>
+        <span>© 2025 FlowraHijab. All Rights Reserved.</span>
+    </div>
+</body>
+</html>

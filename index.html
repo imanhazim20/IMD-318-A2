@@ -1,0 +1,1095 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flowra Hijab</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Owl Carousel CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/2.3.4/assets/owl.carousel.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/2.3.4/assets/owl.theme.default.min.css" />
+
+    <!-- FontAwesome for Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+
+    <!-- WOW.js Animation CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css" rel="stylesheet">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wdth,wght@0,75..100,300..800;1,75..100,300..800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+        .search-container {
+            position: absolute;
+            top: 20px;
+            left: 20px; 
+            display: flex;
+            align-items: center;
+            border: 1px solid #ccc;
+            border-radius: 25px;
+            padding: 5px 10px;
+        }
+        .search-container input[type="text"] {
+            border: none;
+            outline: none;
+            padding: 5px;
+            font-size: 14px;
+            width: 200px;
+        }
+        .search-container button {
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="search-container">
+        <button id="searchButton"><i class="fas fa-search"></i></button>
+        <input type="text" id="searchInput" placeholder="Search...">
+    </div>
+
+    <script>
+        const searchData = {
+            adora: 'adora.html',
+            alma: 'alma.html',
+            amiri: 'amiri.html',
+            armada: 'armada.html',
+            sutilda: 'sutilda.html',
+            adira: 'adira.html',
+            adlina: 'adlina.html',
+            aldara: 'aldara.html',
+            ayda: 'ayda.html',
+            aria: 'aria.html',
+            aviana: 'aviana.html'
+           
+        };
+
+        function handleSearch() {
+            const query = document.getElementById("searchInput").value.trim().toLowerCase();
+
+            if (query) {
+                const resultPage = searchData[query] || 'results.html'; 
+                window.location.href = resultPage;
+            } else {
+                alert("Please enter a search term.");
+            }
+        }
+
+        document.getElementById("searchButton").addEventListener("click", handleSearch);
+
+        document.getElementById("searchInput").addEventListener("keypress", function(event) {
+            if (event.key === "Enter") {
+                handleSearch();
+            }
+        });
+    </script>
+</body>
+<style>
+ 
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #FFFFFF; 
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: white;
+            padding: 15px 20px;
+            border-bottom: 3px solid brown;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            width: 100%; 
+            max-width: 1200px; 
+        }
+
+        .navbar-brand {
+            font-size: 2em;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .navbar-menu {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar-menu li {
+            margin: 0 15px;
+        }
+
+        .navbar-menu a {
+            color: #333;
+            text-decoration: none;
+            font-size: 1.2em;
+            font-weight: 500;
+        }
+
+        .navbar-menu a:hover {
+            color: brown;
+        }
+
+        .toggle-btn {
+            display: none;
+            font-size: 2em;
+            background: none;
+            border: none;
+            color: #333;
+            cursor: pointer;
+        }
+
+     
+       .team-item {
+           position: relative;
+           overflow: hidden;
+           border-radius: 10px;  
+           transition: transform 0.3s ease-in-out;  
+        }
+
+     
+       .team-item .team-img {
+           width: 100%;
+           height: 100%;
+           padding-bottom: 100%;  
+           position: relative;
+           overflow: hidden;
+        }
+
+      
+       .team-item .team-img img {
+           width: 100%;
+           height: 100%;
+           object-fit: cover;  
+           position: absolute;
+           top: 50%;
+           left: 50%;
+           transform: translate(-50%, -50%);  
+           transition: transform 0.3s ease, filter 0.3s ease;
+        }
+
+      
+       .team-item:hover .team-img img {
+           transform: translate(-50%, -50%) scale(1.1); 
+           filter: brightness(80%);  
+        }
+
+      
+       .team-item .team-icon {
+           position: absolute;
+           top: 10px;
+           right: 10px;
+           z-index: 2;
+           opacity: 0;
+           transition: opacity 0.3s ease;
+        }
+
+       .team-item:hover .team-icon {
+           opacity: 1;
+        }
+
+
+       .team-item .team-content {
+           position: absolute;
+           bottom: 10px;
+           left: 10px;
+           z-index: 2;
+           color: #fff; 
+           opacity: 0;
+           transition: opacity 0.3s ease;
+         }
+
+
+       .team-item:hover .team-content {
+           opacity: 1;
+         }
+
+
+       .row {
+           display: flex;
+           flex-wrap: wrap;
+           justify-content: space-between;
+           gap: 30px; 
+         }
+
+       .col-md-6 {
+           flex: 1 1 calc(33.33% - 20px);
+           margin-bottom: 30px;
+         }
+
+
+        .gallery-container {
+            width: 95%;
+            max-width: 1000px;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            margin-top: 20px;
+        }
+
+ @media (max-width: 768px) {
+            .navbar-menu {
+                display: none; 
+                flex-direction: column; 
+                background-color: white;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                width: 100%; 
+                border-top: 2px solid brown;
+                z-index: 9999;
+            }
+
+            .navbar-menu.active {
+                display: flex; 
+            }
+
+            .toggle-btn {
+                display: block; 
+            }
+        }
+
+       .testimonial {
+            background-color: #ffffff; 
+            padding: 80px 20px;
+        }
+
+        .testimonial h1 {
+            font-size: 2.5rem;
+            color: #333; 
+            margin-bottom: 20px;
+        }
+
+        .testimonial p {
+            font-size: 1.1rem;
+            color: #555;
+            line-height: 1.8;
+        }
+
+        .testimonial-carousel .testimonial-item {
+            background: #f8f8f8; 
+            border-radius: 10px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .testimonial-carousel .testimonial-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .testimonial-carousel .testimonial-quote-left,
+        .testimonial-carousel .testimonial-quote-right {
+            position: absolute;
+            font-size: 3rem;
+            color: rgba(128, 0, 32, 0.3); 
+        }
+
+        .testimonial-carousel .testimonial-quote-left {
+            top: 10px;
+            left: 15px;
+        }
+
+        .testimonial-carousel .testimonial-quote-right {
+            bottom: 10px;
+            right: 15px;
+        }
+
+        .testimonial-carousel .testimonial-img img {
+            border-radius: 50%;
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border: 4px solid #800020;
+            margin: 20px auto;
+            display: block;
+        }
+
+        .testimonial-carousel .testimonial-text {
+            margin: 20px 0;
+            color: #555;
+            font-size: 1.1rem;
+            font-style: italic;
+        }
+
+        .testimonial-carousel .testimonial-title h4 {
+            font-size: 1.2rem;
+            color: #333;
+            margin: 10px 0 5px;
+        }
+
+        .testimonial-carousel .testimonial-title p {
+            font-size: 0.9rem;
+            color: #777;
+            margin: 0;
+        }
+
+        .testimonial-carousel .testimonial-title .d-flex i {
+            color: #f0c040; 
+            margin-right: 3px;
+        }
+
+        .owl-carousel .owl-nav button {
+            background: #800020;
+            color: white;
+            border: none;
+            font-size: 1.5rem;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            transition: background 0.3s ease;
+        }
+
+        .owl-carousel .owl-nav button:hover {
+            background: #a00028;
+        }
+
+        .owl-carousel .owl-nav button.owl-prev {
+            left: -50px;
+        }
+
+        .owl-carousel .owl-nav button.owl-next {
+            right: -50px;
+        }
+
+        .owl-carousel .owl-dots .owl-dot {
+            background: #800020;
+            width: 10px;
+            height: 10px;
+            margin: 5px;
+            border-radius: 50%;
+        }
+
+        .owl-carousel .owl-dots .owl-dot.active {
+            background: #f0c040; 
+        }
+
+        .content {
+            flex: 1; 
+        }
+
+        .footer {
+            width: 100%; 
+            background-color: #f8f9fa; 
+            text-align: center; 
+            padding: 15px 0; 
+            border-top: 1px solid #ddd; 
+            box-sizing: border-box; 
+            position: fixed;
+            bottom: 0;
+            left: 0;
+        }
+        .footer a {
+            color: #6c757d; 
+            text-decoration: none; 
+            font-size: 20px; 
+            margin: 0 10px;
+        }
+        .footer a:hover {
+            color: #495057; 
+        }
+
+        .footer span {
+            display: block;
+            margin-top: 5px; 
+            font-size: 12px; 
+            color: #6c757d;
+        }
+
+
+        .contact-info span {
+            font-weight: bold;
+        }
+  .dropdown {
+        position: relative;
+        display: inline-block;
+    }
+
+    .dropbtn {
+        font-size: 16px;
+        font-weight: bold;
+        background-color: transparent;
+        color: black;
+        border: none;
+        cursor: pointer;
+    }
+
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f9f9f9;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+    }
+
+    .dropdown-content a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+    }
+
+    .dropdown-content a:hover {
+        background-color: #ddd;
+    }
+
+    .dropdown:hover .dropdown-content {
+        display: block;
+    }
+
+</style>
+
+<style>
+    .gallery-slides {
+        display: flex;
+        transition: transform 0.5s ease-in-out;
+        width: 100%;
+    }
+
+    .gallery-slide {
+        min-width: 100%;
+        height: 500px;
+        position: relative;
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+
+    .slide1 { background-image: url('Image/tudung1.jpg'); }
+    .slide2 { background-image: url('Image/tudung2.jpg'); }
+    .slide3 { background-image: url('Image/tudung3.jpg'); }
+    .slide4 { background-image: url('Image/tudung4.jpg'); }
+    .slide5 { background-image: url('Image/tudung5.jpg'); }
+    .slide6 { background-image: url('Image/tudung6.jpg'); }
+    .slide7 { background-image: url('Image/tudung7.jpg'); }
+    .slide8 { background-image: url('Image/tudung8.jpg'); }
+    .slide9 { background-image: url('Image/tudung9.jpg'); }
+    .slide10 { background-image: url('Image/tudung10.jpg'); }
+    .slide11 { background-image: url('Image/tudung11.jpg'); }
+    .slide12 { background-image: url('Image/tudung12.jpg'); }
+
+  
+    .caption {
+        position: absolute;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: rgba(0, 0, 0, 0.6);
+        color: white;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-size: 16px;
+        text-align: center;
+    }
+</style>
+
+<body>
+    <header>
+        <img src="Image/logo flora2.jpg" alt="Logo" style="width: 200px; height: auto;">
+    </header>
+
+<nav class="navbar">
+    <div class="navbar-brand">Flowra Hijab</div>
+    <button class="toggle-btn" onclick="toggleMenu()">☰</button>
+    <ul class="navbar-menu">
+        <li><a href="index.html">Home</a></li>
+        
+
+        <li class="dropdown">
+            <a href="javascript:void(0);" class="dropbtn">Location</a>
+            <div class="dropdown-content">
+                <a href="ourbranch.html">Our Branch</a>
+            </div>
+        </li>
+        
+        <li><a href="product.html">Products</a></li>
+        <li><a href="newarrival.html">New Arrivals</a></li>
+        <li><a href="bestseller.html">Best Seller</a></li>
+        <li><a href="cart.html">Cart</a></li>
+    </ul>
+</nav>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.querySelector('.navbar-menu');
+            menu.classList.toggle('active'); 
+        }
+    </script>
+
+    <style>
+        .caption {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: rgba(255, 255, 255, 0.7);
+            color: #800020;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-family: 'Playfair Display', serif; 
+            font-size: 1.5em; 
+            font-weight: bold; 
+            text-align: center;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
+            letter-spacing: 2px; 
+            animation: fadeIn 1.5s ease-in-out; 
+        }
+    
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+    <div class="gallery-container">
+        <div class="gallery-slides">
+            <div class="gallery-slide slide1">
+                <div class="caption">AURELIA</div>
+            </div>
+            <div class="gallery-slide slide2">
+                <div class="caption">AVIANA</div>
+            </div>
+            <div class="gallery-slide slide3">
+                <div class="caption">ARIA</div>
+            </div>
+            <div class="gallery-slide slide4">
+                <div class="caption">ADORA</div>
+            </div>
+            <div class="gallery-slide slide5">
+                <div class="caption">ALMA</div>
+            </div>
+            <div class="gallery-slide slide6">
+                <div class="caption">AMIRI</div>
+            </div>
+            <div class="gallery-slide slide7">
+                <div class="caption">SUTILDA</div>
+            </div>
+            <div class="gallery-slide slide8">
+                <div class="caption">ADLINA</div>
+            </div>
+            <div class="gallery-slide slide9">
+                <div class="caption">ARMADA</div>
+            </div>
+            <div class="gallery-slide slide10">
+                <div class="caption">ALDARA</div>
+            </div>
+            <div class="gallery-slide slide11">
+                <div class="caption">AYDA</div>
+            </div>
+            <div class="gallery-slide slide12">
+                <div class="caption">ADIRA</div>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.querySelector('.navbar-menu');
+            menu.classList.toggle('active');
+        }
+
+        const slides = document.querySelector('.gallery-slides');
+        const totalSlides = document.querySelectorAll('.gallery-slide').length;
+        let currentIndex = 0;
+
+        function autoSwipe() {
+            currentIndex++;
+            if (currentIndex >= totalSlides) {
+                currentIndex = 0;
+            }
+            slides.style.transform = `translateX(-${currentIndex * 100}%)`;
+        }
+
+        setInterval(autoSwipe, 3000);
+    </script>
+</body>
+
+<div class="container-fluid about overflow-hidden py-5">
+    <div class="container py-5">
+        <div class="row">
+            <!-- Flexbox Container to Align Image and Text Side by Side -->
+            <div class="d-flex align-items-center justify-content-between">
+                <!-- Image on the Left -->
+                <div class="col-md-6 wow fadeInLeft" data-wow-delay="0.2s">
+                    <div class="about-img rounded h-100">
+                        <img src="Image/about us.avif" class="img-fluid rounded h-100 w-100" style="object-fit: cover;" alt="About Us">
+                    </div>
+                </div>
+
+                <div class="col-md-6 wow fadeInRight" data-wow-delay="0.2s">
+                    <div class="about-item">
+                        <h4 class="text-uppercase" style="color: deeppink;">About Us</h4>
+                        <h2 class="display-3 mb-3">We Deliver Stylish Printed Bawal Scarves.</h2>
+                        <p class="mb-4">Elevate your look with our high-quality, beautifully designed bawal scarves. Perfect for any occasion, our scarves blend style and comfort effortlessly to complement your unique fashion.</p>
+                        
+                        <div class="bg-light rounded p-4 mb-4">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="d-flex">
+                                        <div>
+                                           <a href="#" class="h4 d-inline-block mb-3" style="color: deeppink;">Satisfied Customer</a>
+                                            <p class="mb-0">Our customers love our premium printed bawal scarves for their elegance and vibrant designs. Each piece is crafted to bring confidence and joy to your wardrobe.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-light rounded p-4 mb-4">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="d-flex">
+                                        <div>
+                                           <a href="#" class="h4 d-inline-block mb-3" style="color: deeppink;">Premium Quality</a>
+                                            <p class="mb-0">We take pride in offering high-quality fabrics and designs that meet your style and comfort needs. Experience the perfect combination of fashion and practicality.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <a href="#" class="btn btn-secondary rounded-pill py-3 px-5" style="background-color: deeppink; color: white;">Read More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<head>
+    <style>
+        .feature-img img {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .feature-img img:hover {
+            transform: scale(1.1); 
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2); 
+        }
+    </style>
+</head>
+
+
+<body>
+    <div class="container-fluid feature bg-light py-5">
+        <div class="container py-5">
+            <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
+               <h4 class="text-primary" style="color: deeppink !important;">Why choose us?</h4>
+                <h1 class="display-4 mb-4">Discover Our Highlights Below</h1>
+                <p class="mb-0">We bring you the perfect blend of style and comfort with our premium printed bawal scarves. Here’s why you’ll love them:</p>
+            </div>
+            <div class="feature-carousel owl-carousel">
+                <div class="feature-item wow fadeInUp" data-wow-delay="0.2s">
+                    <div class="feature-img">
+                        <img src="Image/choosing us1.jpeg" class="img-fluid w-100" alt="" style="height: 250px; object-fit: cover;">
+                    </div>
+                    <div class="feature-content p-4">
+                        <h4 class="mb-3">Effortless Elegance</h4>
+                        <p class="mb-4">Our bawal scarves are designed to elevate your everyday look with minimal effort. Lightweight, comfortable, and always on-trend.</p>
+                        <a href="#" class="btn btn-primary py-2 px-4" style="background-color: deeppink; color: white;"> <span>Read More</span></a>
+                    </div>
+                </div>
+                <div class="feature-item wow fadeInUp" data-wow-delay="0.4s">
+                    <div class="feature-img">
+                     <img src="Image/choosing us2.webp" class="img-fluid w-100" alt="" style="height: 250px; object-fit: cover;">
+                    </div>
+                    <div class="feature-content p-4">
+                        <h4 class="mb-3">Stand Out in Style</h4>
+                        <p class="mb-4">Each scarf features vibrant, high-quality prints that add a pop of personality to any outfit. Perfect for any occassion!</p>
+                        <a href="#" class="btn btn-primary py-2 px-4" style="background-color: deeppink; color: white;"> <span>Read More</span></a>
+                    </div>
+                </div>
+                <div class="feature-item wow fadeInUp" data-wow-delay="0.6s">
+                    <div class="feature-img">
+                        <img src="Image/choosing us3.jpeg" class="img-fluid w-100" alt="" style="height: 250px; object-fit: cover;">
+                    </div>
+                    <div class="feature-content p-4">
+                        <h4 class="mb-3">Premium Fabrics</h4>
+                        <p class="mb-4">Crafted from soft, breathable materials, our scarves ensure all-day comfort without compromising on style.</p>
+                        <a href="#" class="btn btn-primary py-2 px-4" style="background-color: deeppink; color: white;"> <span>Read More</span></a>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-img">
+                        <img src="Image/choosing us4.webp" class="img-fluid w-100" alt="" style="height: 250px; object-fit: cover;">
+                    </div>
+                    <div class="feature-content p-4">
+                        <h4 class="mb-3">Affordable Luxury</h4>
+                        <p class="mb-4">We believe in offering high-quality scarves at prices that won’t break the bank, so you can look great effortlessly.</p>
+                        <a href="#" class="btn btn-primary py-2 px-4" style="background-color: deeppink; color: white;"> <span>Read More</span></a>
+                    </div>
+                </div>
+            </div>
+            <div class="feature-shaps"></div>
+        </div>
+    </div>
+</body>
+
+    
+
+  <div class="container-fluid team py-5">
+    <div class="container py-5">
+        <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
+            <h4 class="text-primary" style="color: deeppink !important;">Our Team Member</h4>
+            <h1 class="display-4 mb-4">Meet Our Amazing Team</h1>
+            <p class="mb-0">Our passionate team works tirelessly to bring you the finest collection of printed bawal scarves. Each member contributes their unique expertise to ensure every scarf is perfect for you.</p>
+        </div>
+        
+
+        <div class="row gy-5 gy-lg-4 gx-4">
+            <!-- Team Member 1 -->
+            <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.2s">
+                <div class="team-item">
+                    <div class="team-img">
+                        <img src="Image/team1.jpeg" class="img-fluid w-100" alt="Trainer 1">
+                    </div>
+
+                    <div class="team-content">
+                        <h4>Annur Hamani</h4>
+                        <p class="mb-0">Creative Designer</p>
+                    </div>
+                </div>
+            </div>
+
+          
+            <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.4s">
+                <div class="team-item">
+                    <div class="team-img">
+                        <img src="Image/team2.jpeg" class="img-fluid w-100" alt="Trainer 2">                   
+                    </div>
+
+                    <div class="team-content">
+                        <h4>Anis Syazwani</h4>
+                        <p class="mb-0">Quality Specialist</p>
+                    </div>
+                </div>
+            </div>
+
+          
+            <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.6s">
+                <div class="team-item">
+                    <div class="team-img">
+                        <img src="Image/team3.jpeg" class="img-fluid w-100" alt="Trainer 3">
+                    </div>
+
+                    <div class="team-content">
+                        <h4>Aina Batrisyia</h4>
+                        <p class="mb-0">Customer Care</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+     
+        <div class="row justify-content-center gy-5 gy-lg-4 gx-4">
+            <!-- Team Member 4 -->
+            <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.8s">
+                <div class="team-item">
+                    <div class="team-img">
+                        <img src="Image/team4.jpeg" class="img-fluid w-100" alt="Trainer 4">
+                    </div>
+
+                    <div class="team-content">
+                        <h4>Iman Hazim</h4>
+                        <p class="mb-0">Marketing</p>
+                    </div>
+                </div>
+            </div>
+
+            
+            <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="1s">
+                <div class="team-item">
+                    <div class="team-img">
+                        <img src="Image/team5.jpeg" class="img-fluid w-100" alt="Trainer 5">
+                    </div>
+
+                    <div class="team-content">
+                        <h4>Aleya Mardiah</h4>
+                        <p class="mb-0">Logistics Coordinators</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+
+
+<div class="container-fluid testimonial pb-5">
+    <div class="container pb-5">
+        <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
+            <h4 class="text-primary" style="color: deeppink !important;">Testimonial</h4>
+            <h1 class="display-5 mb-4">Our Customer Reviews</h1>
+            <p class="mb-0">“Don’t just take our word for it – hear what our customers have to say about our printed bawal scarves!”</p>
+        </div>
+
+        
+        <div id="testimonialCarousel" class="carousel slide" data-ride="carousel" data-interval="3000">
+            <!-- Indicators -->
+            <ol class="carousel-indicators">
+                <li data-target="#testimonialCarousel" data-slide-to="0" class="active"></li>
+                <li data-target="#testimonialCarousel" data-slide-to="1"></li>
+                <li data-target="#testimonialCarousel" data-slide-to="2"></li>
+                <li data-target="#testimonialCarousel" data-slide-to="3"></li>
+            </ol>
+
+          
+            <div class="carousel-inner">
+                <!-- Testimonial 1 -->
+                <div class="carousel-item active">
+                    <div class="testimonial-item text-center">
+                        <div class="testimonial-img">
+                            <img src="Image/testimonial1.jpeg" class="img-fluid rounded-circle" alt="Image">
+                        </div>
+                        <div class="testimonial-text">
+                            <p class="mb-0">"I never knew a scarf could transform my outfit this much! The printed bawal scarf is a game-changer for my wardrobe – it’s both stylish and comfortable."</p>
+                        </div>
+                        <div class="testimonial-title">
+                            <div>
+                                <h4 class="mb-0">Wany Hasrita</h4>
+                                <p class="mb-0">Singer</p>
+                            </div>
+                            <div class="d-flex text-primary">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+              
+                <div class="carousel-item">
+                    <div class="testimonial-item text-center">
+                        <div class="testimonial-img">
+                            <img src="Image/testimonial2.jpeg" class="img-fluid rounded-circle" alt="Image">
+                        </div>
+                        <div class="testimonial-text">
+                            <p class="mb-0">"I adore the unique prints on these scarves! It’s perfect for adding a pop of color to my simple outfits and makes me feel more confident."</p>
+                        </div>
+                        <div class="testimonial-title">
+                            <div>
+                                <h4 class="mb-0">Emma Maembong</h4>
+                                <p class="mb-0">Malaysian Actress and Model</p>
+                            </div>
+                            <div class="d-flex text-primary">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="carousel-item">
+                    <div class="testimonial-item text-center">
+                        <div class="testimonial-img">
+                            <img src="Image/testimonial3.jpeg" class="img-fluid rounded-circle" alt="Image">
+                        </div>
+                        <div class="testimonial-text">
+                            <p class="mb-0">"I’ve been looking for a scarf that combines elegance and practicality, and this printed bawal scarf does just that. It’s light, breathable, and absolutely beautiful!"</p>
+                        </div>
+                        <div class="testimonial-title">
+                            <div>
+                                <h4 class="mb-0">Lisa Surihani</h4>
+                                <p class="mb-0">Malaysian Actress and Model</p>
+                            </div>
+                            <div class="d-flex text-primary">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+<div class="carousel-item">
+    <div class="testimonial-item text-center">
+        <div class="testimonial-img">
+            <img src="Image/testimonial4.jpeg" class="img-fluid rounded-circle" alt="Image">
+        </div>
+        <div class="testimonial-text">
+            <p class="mb-0">"The quality of this scarf is unbeatable! It’s so soft, and the vibrant prints make it the ideal accessory for any season. I love it!"</p>
+        </div>
+        <div class="testimonial-title">
+            <div>
+                <h4 class="mb-0">Hannah Delisha</h4>
+                <p class="mb-0">Malaysian Actress</p>
+            </div>
+            <div class="d-flex text-primary">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+           
+            <a class="carousel-control-prev" href="#testimonialCarousel" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#testimonialCarousel" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+    </div>
+</div>
+
+
+<style>
+  .testimonial-item {
+    background-color: #f8d7da;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.testimonial-item:hover {
+    transform: scale(1.05); 
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); 
+    background-color: #f1c6c6; 
+}
+
+.testimonial-img img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: 20px;
+    transition: transform 0.3s ease;
+}
+
+.testimonial-img img:hover {
+    transform: scale(1.1); 
+}
+
+.testimonial-text {
+    font-size: 1rem;
+    line-height: 1.5;
+    transition: color 0.3s ease;
+}
+
+.testimonial-item:hover .testimonial-text {
+    color: #d9534f; 
+}
+
+.testimonial-title h4 {
+    font-weight: bold;
+}
+
+.testimonial-title p {
+    font-size: 1rem;
+    color: #555;
+}
+
+.testimonial-title h4,
+.testimonial-title p {
+    transition: color 0.3s ease;
+}
+
+.testimonial-item:hover .testimonial-title h4,
+.testimonial-item:hover .testimonial-title p {
+    color: #d9534f; 
+}
+
+.carousel-item {
+    text-align: center;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: #333;
+}
+
+</style>
+	
+       <div class="footer">
+           <a href="https://www.instagram.com/flowrahijab_?igsh=bWoxN3lyeGZxYmM0&utm_source=qr" target="_blank">
+           <i class="fab fa-instagram"></i>
+           </a>
+           <span>© 2025 FlowraHijab. All Rights Reserved.</span>
+     </div>
+ 	<!-- Bootstrap JS and Dependencies -->
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.min.js"></script>
+
+	<!-- WOW.js JS -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+
+	<script>
+        new WOW().init();
+
+</script>
+
+<body>
+
+    <audio controls autoplay> 
+        <source src="Image/HP_Song.mp3" type="audio/mp3">
+    </audio>
+
+</body>
+</html>

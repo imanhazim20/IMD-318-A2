@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aviana - Flowra Hijab</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+        .search-container {
+            position: absolute;
+            top: 20px;
+            left: 20px; 
+            display: flex;
+            align-items: center;
+            border: 1px solid #ccc;
+            border-radius: 25px;
+            padding: 5px 10px;
+        }
+        .search-container input[type="text"] {
+            border: none;
+            outline: none;
+            padding: 5px;
+            font-size: 14px;
+            width: 200px;
+        }
+        .search-container button {
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="search-container">
+        <button id="searchButton"><i class="fas fa-search"></i></button>
+        <input type="text" id="searchInput" placeholder="Search...">
+    </div>
+
+    <script>
+        function handleSearch() {
+            const query = document.getElementById("searchInput").value.trim();
+
+            if (query) {
+                let resultPage;
+                switch(query.toLowerCase()) {
+                    case 'amora':
+                        resultPage = 'Amora.html';
+                        break;
+                    case 'ayra':
+                        resultPage = 'ayra.html';
+                        break;
+                    case 'aulia':
+                        resultPage = 'Aulia.html';
+                        break;
+                    case 'adora':
+                        resultPage = 'adora.html';
+                        break
+                    case 'aila':
+                        resultPage = 'aila.html';
+                        break;
+                    case 'amara':
+                        resultPage = 'amara.html';
+                        break;
+                    case 'arabella':
+                        resultPage = 'arabella.html';
+                        break;
+                    case 'ariana':
+                        resultPage = 'ariana.html';
+                        break;
+                    case 'amaya':
+                        resultPage = 'amaya.html';
+                        break;
+                    case 'aurelia':
+                        resultPage = 'aurelia.html';
+                        break;
+                    case 'aviana':
+                        resultPage = 'aviana.html';
+                        break;
+                    case 'aria':
+                        resultPage = 'aria.html';
+                        break;
+
+                    default:
+                        resultPage = 'results.html';
+                }
+
+                window.location.href = resultPage;
+            } else {
+                alert("Please enter a search term.");
+            }
+        }
+
+ 
+        document.getElementById("searchButton").addEventListener("click", handleSearch);
+
+        document.getElementById("searchInput").addEventListener("keypress", function(event) {
+            if (event.key === "Enter") {
+                handleSearch();
+            }
+        });
+    </script>
+</body>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #FFFFFF; /* Beige color */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: white;
+            padding: 20px 40px;
+            border-bottom: 3px solid brown;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            width: 100%; 
+            max-width: 1200px; 
+            margin: auto;
+        }
+
+        .navbar-brand {
+            font-size: 2em;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .navbar-menu {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar-menu li {
+            margin: 0 15px;
+        }
+
+        .navbar-menu a {
+            color: #333;
+            text-decoration: none;
+            font-size: 1.2em;
+            font-weight: 500;
+        }
+
+        .navbar-menu a:hover {
+            color: brown;
+        }
+
+        .toggle-btn {
+            display: none;
+            font-size: 2em;
+            background: none;
+            border: none;
+            color: #333;
+            cursor: pointer;
+        }
+
+        .gallery-container {
+            width: 95%;
+            max-width: 1000px;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            margin-top: 20px;
+        }
+
+ @media (max-width: 768px) {
+            .navbar-menu {
+                display: none; 
+                flex-direction: column; 
+                background-color: white;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                width: 100%; 
+                border-top: 2px solid brown;
+                z-index: 9999;
+            }
+
+            .navbar-menu.active {
+                display: flex; 
+            }
+
+            .toggle-btn {
+                display: block; 
+            }
+        }
+    </style>
+</head>
+
+<nav class="navbar">
+        <div class="navbar-brand"></div>
+        <button class="toggle-btn" onclick="toggleMenu()">☰</button>
+        <ul class="navbar-menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="product.html">Products</a></li>
+            <li><a href="newarrival.html">New Arrivals</a></li>
+            <li><a href="bestseller.html">Best Seller</a></li>
+            <li><a href="cart.html">Cart</a></li>
+        </ul>
+    </nav>
+
+<script>
+        function toggleMenu() {
+            const menu = document.querySelector('.navbar-menu');
+            menu.classList.toggle('active'); 
+        }
+    </script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh; 
+        }
+
+        header {
+            text-align: center;
+            padding: 20px;
+            background-color: #fdfaf6;
+        }
+
+        .container {
+            flex: 1; 
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .product-container {
+            margin: 20px auto;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            max-width: 300px;
+            padding: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .product-container:hover {
+            transform: scale(1.05);
+        }
+
+        .product-image img {
+            border-radius: 10px;
+            max-width: 100%;
+        }
+
+        .product-info {
+            margin-top: 15px;
+        }
+
+      .product-name {
+    font-size: 28px;
+    font-weight: bold;
+    color: #800000;
+    font-family: 'Merriweather', serif;  
+}
+
+        .product-price {
+            color: #e74c3c;
+            font-size: 20px;
+            margin: 10px 0;
+        }
+
+        .product-quantity {
+            color: #7f8c8d;
+            font-size: 16px;
+        }
+
+        .buy-button {
+            background-color: #A0522D;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .buy-button:hover {
+            background-color: #2980b9;
+        }
+
+        .footer {
+            background-color: #f8f9fa;
+            text-align: center;
+            padding: 15px 0;
+            border-top: 1px solid #ddd;
+        }
+
+        .footer a {
+            color: #6c757d;
+            text-decoration: none;
+            font-size: 20px;
+            margin: 0 10px;
+        }
+
+        .footer a:hover {
+            color: #495057;
+        }
+
+        .footer span {
+            display: block;
+            margin-top: 5px;
+            font-size: 12px;
+            color: #6c757d;
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <img src="Image/logo flora2.jpg" alt="Flowra Hijab" style="width: 200px;">
+    </header>
+
+    <div class="container">
+        <div class="product-container">
+            <div class="product-image">
+                <img src="Image/tudung2.jpg" alt="Flowra Hijab">
+            </div>
+            <div class="product-info">
+                <div class="product-name">AVIANA</div>
+                <div class="product-price">RM29.00</div>
+                <div class="product-quantity">Available: 100</div>
+            </div>
+            <button class="buy-button" onclick="redirectToProduct()">Similar Item</button>
+        </div>
+    </div>
+
+    <div class="footer">
+        <a href="https://www.instagram.com/hmniey._?igsh=eXdjZDFkNjRodno1&utm_source=qr" target="_blank">
+            <i class="fab fa-instagram"></i>
+        </a>
+        <span>© 2025 FlowraHijab. All Rights Reserved.</span>
+    </div>
+
+   <script>
+    function redirectToProduct() {
+        window.location.href = "product.html"; 
+    }
+</script>
+
+
+</body>
+</html>
